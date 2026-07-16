@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fadilnaufal | Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/core/webLogo_icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+              <img src="assets/core/webLogo.png" alt="fn" class="logo-img">
+              <span>fadilnaufal</span>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="publications.html">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+    <img src="assets/core/banner.jpeg" alt="Technical Abstract Banner" class="banner-img">
+    </section>
+
+    <main class="container">
+        <h2>Portfolio</h2>
+        <p>A comprehensive repository of project portfolio categorized by technical domain.</p>
+
+        <!-- <h3><i>Under Construction. Coming Soon...</i></h3>
+    </main>
+
+    <main class="container"> -->
+        <div class="portfolio-grid">
+
+          <!-- <div class="portfolio-card">
+              <img src="portfolio/template/beach.jpg" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Technology</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Title
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat mi quis pretium semper.
+                  </p>
+                  <a href="portfolio/project-template.html" class="btn">View Details</a>
+              </div>
+          </div> -->
+
+          <div class="portfolio-card">
+              <img src="portfolio/mrhp/mrhp_voxel.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Nuclear</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Micro Reactor Heat Pipe (MRHP)
+                  </h3>
+                  <p>
+                    This project analyzed a novel reactor using Uranium Carbide fuel using OpenMC, resulting in 11.1 % enrichment, a -2.0084 pcm/K temperature reactivity coefficient, and a 2.07 power peaking factor.
+                  </p>
+                  <a href="portfolio/project-mrhp.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/twophase/flow.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">CFD</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Two-phase Turbulent CFD in Nuclear Reactor
+                  </h3>
+                  <p>
+                    This multi-platform project utilized gmsh, OpenFOAM's interFoam, ParaView, and Python to simulate and quantitatively analyze turbulent two-phase fluid dynamics, validated against experimental data.
+                  </p>
+                  <a href="portfolio/project-twophase.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/cadScrewdriver/cad_25wc36.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Technical Design</span>
+                    <span class="category-tag">CAD</span>
+                  </div>
+                  <h3>
+                    Diesel Screwdriver CAD Modeling
+                  </h3>
+                  <p>
+                    Using OpenSCAD, this project modeled the Tier 5 "Diesel Screwdriver" from TooTallToby competition, calculating its mass via FreeCAD to achieve a highly accurate 202.59775 g final model with just 0.0011 % error.
+                  </p>
+                  <a href="portfolio/project-cadScrewdriver.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/openfoamevaluation/oFE_output_residual.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">CFD</span>
+                    <span class="category-tag">Programming</span>
+                  </div>
+                  <h3>
+                    openFoamEvaluation
+                  </h3>
+                  <p>
+                    A Python script that automates OpenFOAM log analysis using regular expressions, extracting simulation data into a CSV file and generating matplotlib line graphs to evaluate convergence and stability.
+                  </p>
+                  <a href="portfolio/project-openfoamevaluation.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/kpfhr/kpfhr-coreXY.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Nuclear</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Fluoride Salt-Cooled High Temperature Reactor
+                  </h3>
+                  <p>
+                    This project modeled a simplified pebble bed reactor core with TRISO fuel using OpenMC, successfully conducting a preliminary criticality study on the advanced fluoride salt-cooled high-temperature reactor.
+                  </p>
+                  <a href="portfolio/project-kpfhr.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/annsplitter/ann-architecture.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Programming</span>
+                    <span class="category-tag">AI</span>
+                  </div>
+                  <h3>
+                    ann-splitter: an Artificial Neural Network Pipeline
+                  </h3>
+                  <p>
+                    Featuring two interconnected Python scripts, ann-splitter is an MLP neural network pipeline using TensorFlow and scikit-learn that automates data partitioning, visualizes loss curves, and rigorously audits predictive performance via R<sup>2</sup> and RMSE metrics.
+                  </p>
+                  <a href="portfolio/project-annsplitter.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/reactor4s/reactor4s-coreXY.jpg" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Nuclear</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Super-Safe Small and Simple (4S) Reactor
+                  </h3>
+                  <p>
+                    This MCNPX simulation of Toshiba's 4S sodium fast reactor yielded a critical k<sub>eff</sub> of 1.00264, a negative Doppler coefficient of -7.4187 × 10<sup>-4</sup>, and confirmed successful modeling with safe reactivity margins.
+                  </p>
+                  <a href="portfolio/project-reactor4s.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/codePlagiarismCheck/codePlagiarismCheck-result.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Programming</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    codePlagiarismCheck: Python Assignment Plagiarism Protocol
+                  </h3>
+                  <p>
+                    This Python plagiarism detection tool utilizes <code>ast</code> and <code>difflib</code> to analyze structural similarities in code submissions, successfully catching copied logic even when variables are renamed or formatting is altered.
+                  </p>
+                  <a href="portfolio/project-codeplagiarismcheck.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/projecteuler/p014vis.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Programming</span>
+                    <span class="category-tag">Mathematics</span>
+                  </div>
+                  <h3>
+                    Project Euler
+                  </h3>
+                  <p>
+                    This portfolio features programming solutions for Project Euler's math challenges, bridging advanced mathematical theory with optimized, highly performant computational algorithms to demonstrate analytical rigor and logical problem-solving in software development.
+                  </p>
+                  <a href="portfolio/project-projecteuler.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/cavityLid/sim_1vs8k.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">CFD</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Lid-Driven Cavity Using OpenFOAM
+                  </h3>
+                  <p>
+                    This OpenFOAM CFD study simulated a 2D lid-driven cavity across Reynolds numbers from 1 to 8000, successfully validating flow transitions and eddy formations against Kuhlmann et al.’s benchmark research.
+                  </p>
+                  <a href="portfolio/project-cavityLid.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/cadBallStructure/cad_25spo15.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Technical Design</span>
+                    <span class="category-tag">CAD</span>
+                  </div>
+                  <h3>
+                    Toy Ball for Structure CAD Modeling
+                  </h3>
+                  <p>
+                    Using OpenSCAD, this project modeled the Tier 4 "Toy Ball for Structure" from TooTallToby competition, calculating its mass via FreeCAD to achieve a highly accurate 63.34197 g final model with just 0.0284 % error.
+                  </p>
+                  <a href="portfolio/project-cadBallStructure.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/cavityTemperature/cavHT_full.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">CFD</span>
+                    <span class="category-tag">Engineering</span>
+                  </div>
+                  <h3>
+                    Temperature-Driven Cavity using OpenFOAM
+                  </h3>
+                  <p>
+                    Reproducing Betts and Bokhari’s study, this project used OpenFOAM’s buoyantSimpleFoam to model steady-state turbulent natural convection in a tall cavity, successfully validating temperature-driven vortex formation and velocity profiles against experimental data.
+                  </p>
+                  <a href="portfolio/project-cavityTemperature.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+          <div class="portfolio-card">
+              <img src="portfolio/gaslift/process.png" alt="Project" class="portfolio-img">
+              <div class="portfolio-info">
+                  <div class="tag-container">
+                    <span class="category-tag">Technical Design</span>
+                    <span class="category-tag">P&ID</span>
+                  </div>
+                  <h3>
+                    Gas Lift Compression P&ID Walktrhough
+                  </h3>
+                  <p>
+                    This project features a video walkthrough of a P&ID, focusing on the Engine Lube Oil Conditioning and Gas Circulation Loop's mechanical sequencing and thermodynamic regulation.
+                  </p>
+                  <a href="portfolio/project-gaslift.html" class="btn">View Details</a>
+              </div>
+          </div>
+
+        </div>
+    </main>
+
+    <div class="contact-section">
+      <p style="margin-bottom: 2rem; color: #94a3b8;">Let's connect. Reach out for engineering works, research collaborations, or technical inquiries.</p>
+      <div class="contact-links">
+        <a href="mailto:f.n.wahas@gmail.com">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span>Email</span>
+        </a>
+
+        <a href="https://linkedin.com/in/fadilnaufal" target="_blank">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/fadilnaufal" target="_blank">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+            </svg>
+            <span>GitHub</span>
+        </a>
+      </div>
+      <p style="margin-bottom: 0rem; margin-top: 3rem; color: #94a3b8;">© Fadil Naufal Wahas, 2026. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

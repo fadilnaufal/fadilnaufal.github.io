@@ -1,0 +1,821 @@
+/* ==========================================================================
+   1. Reset & Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent; /* Clean tap visual on mobile */
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px; /* Ideal base sizing for mobile readability */
+}
+
+/* ==========================================================================
+   2. Navigation Bar (Responsive Core)
+   ========================================================================== */
+header {
+    background-color: #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+nav .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0; /* Expanded touch target height */
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #38bdf8;
+}
+
+/* ==========================================================================
+   3. Layout Containers & Typography
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1, h2, h3 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; line-height: 1.2; }
+h2 { font-size: 2rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+h3 { font-size: 1.35rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+/* ==========================================================================
+   4. Buttons (Thumb & Finger Friendly)
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    background-color: #314863;/*#2563eb;*/
+    color: #fff;
+    padding: 0.75rem 1.5rem; /* Large target area for mobile clicks */
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 44px; /* Apple/Google accessibility baseline */
+    min-height: 44px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #182433;/*#1d4ed8;*/
+}
+
+.btn-secondary {
+    background-color: #5a6f8a;
+}
+
+.btn-secondary:hover {
+    background-color: #3a495c;
+}
+
+/* Disabled / TBD Button Styling */
+.btn-tbd:disabled {
+    background-color: #cbd5e1; /* Clear, neutral grey color */
+    color: #64748b;            /* Muted dark grey text for low contrast */
+    border: 0px solid #cbd5e1;
+    cursor: not-allowed;       /* Changes the mouse cursor to a "block" symbol */
+    box-shadow: none;          /* Removes any button depth */
+    transform: none !important; /* Prevents the hover "lift" animation from working */
+}
+
+/* ==========================================================================
+   Hero Landscape Banner & Smooth Fade Style
+   ========================================================================== */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 200px; /* Gives the banner solid vertical presence */
+    display: flex;
+    align-items: center;
+    margin-bottom: 0rem;
+    overflow: hidden;
+    border-radius: 8px; /* Matches your card aesthetics */
+}
+
+.banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents the image from distorting */
+    z-index: 1;
+}
+
+/* The magic mask: Creates a smooth transition overlay blending to white */
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fades from a dark overlay for text contrast to completely white at the bottom */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(248, 249, 250, 0.7) 50%,
+        rgba(248, 249, 250, 1) 100%
+    );
+    z-index: 2;
+}
+
+/* Keeps your text crisp and legible on top of the graphics layers */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 5rem;
+    padding-left: 8.5rem;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    color: #0f172a; /* Dark text reads perfectly over the faded layout */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #334155;
+    line-height: 1.5;
+}
+
+/* Responsive adjustment for small phone screens */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.85rem;
+    }
+}
+
+/* ==========================================================================
+   5. Modular Component Framework
+   ========================================================================== */
+
+/* Home Snippet Cards */
+/* .snippet-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+} */
+
+/* Home Snippet Cards Layout with Far-Right Alignment */
+.snippet-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+
+    /* Flexbox transforms this card into a two-column layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem; /* Creates breathing space between the text and the photo */
+}
+
+.snippet-text {
+    flex: 1; /* Automatically allows text elements to consume available room on the left */
+}
+
+.snippet-text .btn {
+    margin-top: 1rem; /* Replaces the old <br> tag for spacing consistency */
+}
+
+.snippet-img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover; /* Prevents stretching and crops cleanly */
+    border-radius: 6px;
+    background-color: #cbd5e1; /* Visual placeholder fallback background */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* About Me / CV Presentation */
+.about-profile {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.profile-img {
+    width: 250px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #cbd5e1;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.cv-section {
+    margin-top: 2rem;
+}
+
+.cv-section h3 {
+    margin-top: 1.5rem;
+    color: #2563eb;
+}
+
+.cv-section ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cv-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Portfolio Page Grid Layout */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portfolio-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #cbd5e1;
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.category-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #2563eb;
+    padding: 0.2rem 0.5rem;
+    border-radius: 100px;
+    margin-bottom: 0.5rem;
+
+    /* ADD THIS LINE IF INSIDE A FLEXBOX */
+    align-self: flex-start;
+}
+
+.tag-container {
+    display: flex;
+    flex-direction: row; /* Forces children to sit side-by-side */
+    gap: 0.5rem;         /* An alternative way to space them out */
+}
+
+.portfolio-info p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    color: #64748b;
+}
+
+/* Project Detail Layout */
+.project-detail-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    background-color: #cbd5e1;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Publications Output Configuration */
+.pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pub-item {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.pub-content {
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+.pub-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Contact Footer Area */
+footer, .contact-section {
+    background-color: #0f172a;
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-links a {
+    background-color: #2563eb; /* The signature blue rectangle background */
+    color: #fff; /* White text for contrast */
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column; /* Keeps icon stacked above text */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem; /* Generous padding inside the rectangle */
+    border-radius: 8px; /* Slightly rounded edges */
+    min-width: 140px; /* Ensures all three rectangles are uniform in size */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-links a:hover {
+    background-color: #1d4ed8; /* Darker blue highlight on hover */
+    text-decoration: none;
+    transform: translateY(-3px); /* Subtle physical lift */
+}
+
+/* Ensure the icons inside turn white to match the new text color */
+.contact-links a .contact-icon {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+.image-container {
+  display: flex;       /* Forces children to align horizontally */
+  gap: 20px;           /* Adds space between the images */
+}
+
+.image-container img {
+  width: 250px;        /* Controls image size to prevent overflow */
+  height: auto;        /* Keeps original image proportions */
+}
+
+/* ==========================================================================
+   PDF Viewer & Action Component Layout
+   ========================================================================== */
+.pdf-container {
+    background: #fff;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 600px; /* Generous reading vertical space on desktop */
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.pdf-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* Mobile responsive constraints for the PDF previewer */
+@media (max-width: 768px) {
+    .pdf-container {
+        padding: 1rem;
+    }
+
+    .pdf-viewer {
+        height: 400px; /* Scales down layout height slightly on smaller smartphone screens */
+    }
+
+    .pdf-actions .btn {
+        width: 100%; /* Spans the action button fully across mobile grids for easy thumb tapping */
+    }
+}
+
+code {
+  background-color: #eaf3f4;
+  color: #063384;
+  padding: 2px 4px;
+  border-radius: 10px;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   6. Media Queries (Mobile & Tablet Optimization Screen Overrides)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Unstick the menu so it scrolls naturally out of the way on mobile */
+    header {
+        position: static;
+    }
+
+    /* Fluid structure containers */
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    /* Convert structural menus into stacked profiles */
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    nav ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    nav ul li {
+        margin-left: 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0.5rem;
+    }
+
+    /* Scaling headings down dynamically */
+    h1 { font-size: 1.85rem; }
+    h2 { font-size: 1.45rem; }
+
+    /* Realign personal layouts vertically */
+    .about-profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    /* Force layouts to conform cleanly across smaller displays */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pub-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+    }
+
+    .pub-item .btn {
+        width: 100%;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+    }
+
+    .image-container {
+      flex-wrap: wrap;    /* Allows items to move to a new line when cramped */
+    }
+
+    .image-container img {
+      flex: 1 1 100%;     /* Forces each image to take up the full row width */
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... your existing mobile styles ... */
+
+    /* Stacks the text on top and pushes the image to the bottom inside the card on phones */
+    .snippet-card {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .snippet-img {
+        width: 100%; /* Spans across the full width of the mobile card container */
+        height: 160px;
+    }
+}
+
+/* Website Header Logo Sizing Rules */
+/* Website Header Logo & Text Layout */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;       /* Adds perfectly uniform space between the image and the text */
+    text-decoration: none;
+    color: #f0eee9ff;        /* Ensures the text stays white */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-img {
+    height: 40px;       /* Constrains height perfectly inside your header */
+    width: auto;        /* Scales width automatically to prevent distortion */
+    object-fit: contain;
+    display: block;
+}
+
+/* Optional hover state to make the text match your link highlights */
+.logo:hover span {
+    color: #ccc6b5ff;
+    transition: color 0.2s ease;
+}
+
+/* Responsive adjustment for small mobile viewports */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 32px;   /* Scales the graphic down slightly on smartphones */
+    }
+    .logo {
+        font-size: 1.3rem; /* Slightly smaller text for tighter mobile headers */
+        gap: 0.5rem;       /* Marginally tighter gap space on phones */
+    }
+}
+
+/* Optional responsive adjustment for smaller phone layouts */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 32px;   /* Slightly scales down the header logo graphic on mobile screens */
+    }
+}
+
+/* Centered Full-Size Content Image Configuration */
+.centered-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem auto; /* Creates clean vertical separation from paragraphs */
+    width: 100%;
+    text-align: center;
+}
+
+.full-spec-img {
+    width: 100%;         /* Allows the image to fill up to its inline max-width */
+    height: auto;        /* CRITICAL: Maintains the aspect ratio so NO cropping happens */
+    object-fit: contain; /* Keeps the original image properties intact */
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Sub-caption text underneath the image */
+.centered-image-container figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Mobile responsive scaling safety net */
+@media (max-width: 768px) {
+    .centered-image-container {
+        margin: 1.5rem auto;
+    }
+
+    .full-spec-img {
+        max-width: 100%; /* Ensures the image shrinks safely on narrow mobile screens */
+    }
+}
+
+/* Centered & Fully Responsive Video Framework */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem auto; /* Matches the clean paragraph gap spacing used on images */
+    width: 100%;
+    max-width: 650px;    /* Matches your standard image layout presentation limits */
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* CRITICAL: Maintains perfect widescreen layout size on all devices */
+    height: auto;         /* Relies on aspect-ratio to compute heights dynamically */
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: none;         /* Clears native legacy frameborder markings */
+}
+
+/* Tighter adjustments for phone layout views */
+@media (max-width: 768px) {
+    .video-container {
+        margin: 1.5rem auto;
+        padding: 0 0.5rem; /* Adds a tiny safety padding on narrow screens */
+    }
+}
+
+/* Gallery Thumbnails Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* The Popup Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000; /* Sits completely on top of navigation bars */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.95); /* Deep dark blue transparent overlay */
+}
+
+/* Modal Box Content Container */
+.modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    height: 100%;
+}
+
+/* Hide slideshow images by default */
+.mySlides {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.mySlides img {
+    max-width: 100%;
+    max-height: 80vh; /* Prevents image from running off screen vertically */
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Close Window Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #cbd5e1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+/* Slider Navigation Buttons (Next/Prev) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-decoration: none;
+}
+
+.prev { left: -50px; }
+.next { right: -50px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsiveness Override */
+@media (max-width: 768px) {
+    .prev { left: 0; background: rgba(0,0,0,0.3); }
+    .next { right: 0; background: rgba(0,0,0,0.3); }
+    .close-btn { top: 10px; right: 20px; }
+}

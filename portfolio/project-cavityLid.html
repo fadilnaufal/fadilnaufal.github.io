@@ -1,0 +1,352 @@
+<!--
+Edit:
+-Ln 16: Title at tab
+-Ln 46: Title at heading
+-Image(s) 3 sections: gallery-grid, lightboxModal, centered-image-container
+-Paragraph(s)
+-Link repository: btn
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      fadilnaufal | Cavity Lid
+    </title>
+    <link rel="icon" type="image/png" href="../assets/core/webLogo_icon.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+              <img src="../assets/core/webLogo.png" alt="fn" class="logo-img">
+              <span>fadilnaufal</span>
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About Me</a></li>
+                <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="../publications.html">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+    <img src="../assets/core/banner.jpeg" alt="Technical Abstract Banner" class="banner-img">
+    </section>
+
+    <main class="container">
+        <a href="../portfolio.html" style="text-decoration: none; color: #2563eb; font-weight: 500;">← Back to Portfolio</a>
+
+        <h1 style="margin-top: 1rem;">
+          Lid-Driven Cavity Using OpenFOAM
+        </h1>
+        <p style="color: #475569; font-weight: 500;">
+          Category(s):
+          <span class="category-tag">CFD</span>
+          <span class="category-tag">Engineering</span>
+        </p>
+
+        <div class="gallery-grid">
+            <img src="cavityLid/sim_1vs8k.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(1)">
+            <img src="cavityLid/ref_1vs8k.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(2)">
+            <img src="cavityLid/cavity1.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(3)">
+            <img src="cavityLid/cavity2.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(4)">
+            <img src="cavityLid/cavity3.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(5)">
+            <img src="cavityLid/cavity4.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(6)">
+            <img src="cavityLid/cavity5.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(7)">
+            <img src="cavityLid/cavity6.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(8)">
+            <img src="cavityLid/cavity7.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(9)">
+            <img src="cavityLid/cavity8.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(10)">
+            <img src="cavityLid/output_residual.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(11)">
+            <img src="cavityLid/output_continuity.png"
+            class="gallery-thumb" onclick="openLightbox(); currentSlide(12)">
+        </div>
+
+        <div id="lightboxModal" class="modal">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+
+            <div class="modal-content">
+                <div class="mySlides">
+                    <img src="cavityLid/sim_1vs8k.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/ref_1vs8k.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity1.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity2.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity3.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity4.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity5.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity6.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity7.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/cavity8.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/output_residual.png">
+                </div>
+                <div class="mySlides">
+                    <img src="cavityLid/output_continuity.png">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+
+        <h3>Project Overview</h3>
+        <p>
+          The case is a two-dimensional (2D) lid-driven cavity. The geometry is a 2D 0.1 m by 0.1 m (&#947 = Lx/Ly = 1) cavity space with the upper wall moving to the positive x-axis direction at certain velocities. The boundary of right, left, and lower wall is stationary. The fluid is air with kinematic viscosity (&#957) of 1 x 10<sup>-5</sup> m²/s.
+        </p>
+        <p>
+          The objective of this preliminary study is to understand the effect of Reynolds number (Re) on the air flow inside the lid-driven cavity, particularly the flow profile. Also, the study is a reproduction of the study conducted by <a href="https://doi.org/10.1007/978-3-319-91494-7_8" target="_blank">Hendrik C. Kuhlmann et. al. [1]</a>. At certain velocity, is it laminar, transitional, or turbulent? At what Reynolds number does the change occurs?
+        </p>
+        <math display="block">
+          Re =
+          <mfrac>
+            <mrow> &#961 . U . L </mrow>
+            <mrow> &#956 </mrow>
+          </mfrac>
+           =
+          <mfrac>
+            <mrow>  U . L </mrow>
+            <mrow> &#957 </mrow>
+          </mfrac>
+          ..... (1)
+        </math>
+        <p>
+          where:<br>
+          Re = Reynolds number (-)<br>
+          rho = fluid density (kg/m³)<br>
+          U = inlet velocity = upper wall velocity (m/s)<br>
+          L = characteristic length = wall length = 0.1 m<br>
+          mu = dynamic viscosity (kg/m-s)<br>
+          nu = kinematic viscosity =  1 x 10<sup>-5</sup> m²/s<br>
+        </p>
+        <p>
+          Reynolds number can be calculated using the Eq. (1). The Reynolds number was varied by changing the wall velocity. Here, the upper wall velocity is varied from 0.0001 m/s to 0.8 m/s with various increment. The wall velocity variation is presented at the table below.
+        </p>
+        <table style="margin: 0 auto; width: 20%; border: 1px solid black;">
+          <tr>
+            <th>U (m/s)</th>
+            <th>Re (-)</th>
+          </tr>
+          <tr><td>0.0001</td><td>1</td></tr>
+          <tr><td>0.01</td><td>100</td></tr>
+          <tr><td>0.02</td><td>200</td></tr>
+          <tr><td>0.03</td><td>300</td></tr>
+          <tr><td>0.04</td><td>400</td></tr>
+          <tr><td>0.05</td><td>500</td></tr>
+          <tr><td>0.1</td><td>1000</td></tr>
+          <tr><td>0.2</td><td>2000</td></tr>
+          <tr><td>0.3</td><td>3000</td></tr>
+          <tr><td>0.8</td><td>8000</td></tr>
+        </table>
+        <p>
+          I used the open-source CFD software OpenFOAM for this study with simpleFoam solver for both laminar and turbulent flow, with the latter using the k-Omega turbulence model. The flow was assumed to be steady-state. A 50 by 50 hexahedral grid mesh was used in the model, where the z-axis was set to 1 cell to represent the 2 dimensional case.
+        </p>
+
+        <p>
+          First, the simulation was validated by comparing the case with U = 0.0001 m/s and U = 0.8 m/s, hence the Re are 1 and 8000, respectively, with the case from a study conducted by Hendriketal [1], also with the same Re. The fluid flow with the isolines (streamlines) from both simulation and reference [1] can be seen in the Fig. 1 and Fig. 2 below. It can be seen that the results generated by our simulations is the same as the results obtained from [1].
+        </p>
+        <figure class="centered-image-container">
+          <img src="cavityLid/sim_1vs8k.png"
+          onclick="openLightbox(); currentSlide(1)"
+          class="gallery-thumb"
+          style="height: auto; max-width: 500px;">
+          <figcaption>Fig 1. Flow pattern of the simulation</figcaption>
+        </figure>
+        <figure class="centered-image-container">
+          <img src="cavityLid/ref_1vs8k.png"
+          onclick="openLightbox(); currentSlide(2)"
+          class="gallery-thumb"
+          style="height: auto; max-width: 500px;">
+          <figcaption>Fig 2. Flow pattern of the reference</figcaption>
+        </figure>
+        <p>
+          The flow with Re = 1 is laminar and almost vertically symmetrical and the flow with Re = 8000 is turbulent with 3 secondary eddies in the 3 corners of the cavity.
+        </p>
+        <p>
+          Next, the parameter of U was varied from 0.01 m/s to 0.3 m/s with simpleFoam laminar model as per Table 1, and look at the flow profile of the cavity. The isolines can be seen at Fig. 3 to Fig. 10.
+        </p>
+        <figure class="image-container">
+          <img src="cavityLid/cavity1.png"
+          onclick="openLightbox(); currentSlide(3)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity2.png"
+          onclick="openLightbox(); currentSlide(4)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity3.png"
+          onclick="openLightbox(); currentSlide(5)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity4.png"
+          onclick="openLightbox(); currentSlide(6)"
+          class="gallery-thumb"
+          style="height: auto;">
+        </figure>
+        <figure class="image-container">
+          <img src="cavityLid/cavity5.png"
+          onclick="openLightbox(); currentSlide(7)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity6.png"
+          onclick="openLightbox(); currentSlide(8)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity7.png"
+          onclick="openLightbox(); currentSlide(9)"
+          class="gallery-thumb"
+          style="height: auto;">
+          <img src="cavityLid/cavity8.png"
+          onclick="openLightbox(); currentSlide(10)"
+          class="gallery-thumb"
+          style="height: auto;">
+        </figure>
+        <figcaption>Fig 3 to 10. Various Re simulations</figcaption>
+        <p></p>
+        <p>
+          Convergence of the Re = 8000 flow can be observed from simulation's variables residuals and the time-step continuity error graphs below. This graph is created using the <a href="project-openfoamevaluation.html" target="_blank">openFoamEvaluation</a> script.
+        </p>
+        <figure class="centered-image-container">
+          <img src="cavityLid/output_residual.png"
+          onclick="openLightbox(); currentSlide(11)"
+          class="gallery-thumb"
+          style="height: auto; max-width: 400px;">
+          <figcaption>Fig 11. Simulation variables residual</figcaption>
+        </figure>
+        <figure class="centered-image-container">
+          <img src="cavityLid/output_continuity.png"
+          onclick="openLightbox(); currentSlide(12)"
+          class="gallery-thumb"
+          style="height: auto; max-width: 400px;">
+          <figcaption>Fig 12. Time-step continuity error</figcaption>
+        </figure>
+        <p>The case files are available in the repository.</p>
+        <p>
+          Reference: <br>
+          [1] H. C. Kuhlmann and F. Romanò, "The Lid-Driven Cavity," ''Computational Methods in Applied Sciences'', vol. 50, 2019. https://doi.org/10.1007/978-3-319-91494-7_8
+        </p>
+
+        <div class="btn-group">
+            <a href="https://github.com/fadilnaufal/cavityLid" target="_blank" class="btn">View Repository</a>
+            <a href="../portfolio.html" class="btn btn-secondary">Back to Portfolio</a>
+        </div>
+    </main>
+
+    <p style="margin-top: 10rem;"> </p>
+
+    <div class="contact-section">
+      <p style="margin-bottom: 2rem; color: #94a3b8;">Let's connect. Reach out for engineering works, research collaborations, or technical inquiries.</p>
+      <div class="contact-links">
+        <a href="mailto:f.n.wahas@gmail.com">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span>Email</span>
+        </a>
+
+        <a href="https://linkedin.com/in/fadilnaufal" target="_blank">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/fadilnaufal" target="_blank">
+            <svg viewBox="0 0 24 24" class="contact-icon">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+            </svg>
+            <span>GitHub</span>
+        </a>
+      </div>
+      <p style="margin-bottom: 0rem; margin-top: 3rem; color: #94a3b8;">© Fadil Naufal Wahas, 2026. All rights reserved.</p>
+    </div>
+
+</body>
+
+<script>
+    let slideIndex = 1;
+
+    function openLightbox() {
+        document.getElementById("lightboxModal").style.display = "block";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightboxModal").style.display = "none";
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    // NEW: Keyboard Navigation Listener
+    // UPDATED: Robust Keyboard Navigation Listener
+    document.addEventListener('keydown', function(event) {
+        const modal = document.getElementById("lightboxModal");
+
+        // 1. Check if the modal exists and is currently visible
+        if (modal && (modal.style.display === "block" || window.getComputedStyle(modal).display === "block")) {
+
+            if (event.key === "ArrowRight" || event.keyCode === 39) {
+                plusSlides(1);
+            }
+            else if (event.key === "ArrowLeft" || event.keyCode === 37) {
+                plusSlides(-1);
+            }
+            // 2. Multi-browser safety catch for the Escape key
+            else if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
+                closeLightbox();
+            }
+        }
+    });
+</script>
+
+</html>
