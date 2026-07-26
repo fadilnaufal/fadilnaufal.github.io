@@ -153,6 +153,28 @@
                       </li>
                     </ul>
 
+                    <div id="lightboxModal" class="modal">
+                        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+
+                        <div class="modal-content">
+                            <div class="mySlides">
+                                <img src="assets/documents/Certificate Cpp Programming - Fadil Naufal Wahas (5426278769FW).jpg">
+                            </div>
+                            <div class="mySlides">
+                                <img src="assets/documents/Certificate Risk Management - Fadil Naufal Wahas.jpg">
+                            </div>
+                            <div class="mySlides">
+                                <img src="assets/documents/Certificate Python - Fadil Naufal Wahas.png">
+                            </div>
+                            <div class="mySlides">
+                                  <img src="assets/documents/Certificate IAEA Safety Standards - Fadil Naufal Wahas.jpg">
+                            </div>
+
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                    </div>
+
                     <h3>Trainings and Certifications</h3>
                     <ul>
                       <li>
@@ -164,6 +186,13 @@
                           <li>Implemented object-oriented programming</li>
                           <li>File I/O operations and directives</li>
                         </ul>
+
+                        <figure class="centered-image-container">
+                          <img src="assets/documents/Certificate Cpp Programming - Fadil Naufal Wahas (5426278769FW).jpg"
+                          onclick="openLightbox(); currentSlide(1)"
+                          class="gallery-thumb"
+                          style="height: auto; max-width: 300px;">
+                        </figure>
                       </li>
 
                       <li>
@@ -175,6 +204,13 @@
                           <li>Risk assessment, identification, and response</li>
                           <li>Risk monitoring and reporting</li>
                         </ul>
+
+                        <figure class="centered-image-container">
+                          <img src="assets/documents/Certificate Risk Management - Fadil Naufal Wahas.jpg"
+                          onclick="openLightbox(); currentSlide(2)"
+                          class="gallery-thumb"
+                          style="height: auto; max-width: 300px;">
+                        </figure>
                       </li>
 
                       <li>
@@ -186,6 +222,13 @@
                           <li>Scientific computation for engineering</li>
                           <li>Data analysis, visualization, and database system</li>
                         </ul>
+
+                        <figure class="centered-image-container">
+                          <img src="assets/documents/Certificate Python - Fadil Naufal Wahas.png"
+                          onclick="openLightbox(); currentSlide(3)"
+                          class="gallery-thumb"
+                          style="height: auto; max-width: 300px;">
+                        </figure>
                       </li>
 
                       <li>
@@ -197,7 +240,15 @@
                           <li>Safety fundamentals, requirements, and guides (IAEA Safety Publication Series)</li>
                           <li>IAEA Safety Standards development, establishment, evaluation, access, and implementation</li>
                         </ul>
+
+                        <figure class="centered-image-container">
+                          <img src="assets/documents/Certificate IAEA Safety Standards - Fadil Naufal Wahas.jpg"
+                          onclick="openLightbox(); currentSlide(4)"
+                          class="gallery-thumb"
+                          style="height: auto; max-width: 300px;">
+                        </figure>
                       </li>
+
                     </ul>
 
                     <h3>Technical and Language Proficiencies</h3>
@@ -271,4 +322,57 @@
     </div>
 
 </body>
+
+<script>
+    let slideIndex = 1;
+
+    function openLightbox() {
+        document.getElementById("lightboxModal").style.display = "block";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightboxModal").style.display = "none";
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    // NEW: Keyboard Navigation Listener
+    // UPDATED: Robust Keyboard Navigation Listener
+    document.addEventListener('keydown', function(event) {
+        const modal = document.getElementById("lightboxModal");
+
+        // 1. Check if the modal exists and is currently visible
+        if (modal && (modal.style.display === "block" || window.getComputedStyle(modal).display === "block")) {
+
+            if (event.key === "ArrowRight" || event.keyCode === 39) {
+                plusSlides(1);
+            }
+            else if (event.key === "ArrowLeft" || event.keyCode === 37) {
+                plusSlides(-1);
+            }
+            // 2. Multi-browser safety catch for the Escape key
+            else if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
+                closeLightbox();
+            }
+        }
+    });
+</script>
+
 </html>
